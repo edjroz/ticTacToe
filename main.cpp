@@ -5,6 +5,8 @@ using namespace std;
 
 char grid [3][3] = {'1','2','3','4','5','6','7','8','9'};
 char player = 'X';
+int plays;
+
 void Grid()
 {
   system("clear");
@@ -101,9 +103,11 @@ return '/';
 
 int main()
 {
+  plays = 0;
   Grid();
   while (1)
   {
+    n++
     Input();
     Grid();
     if ( Win()=='X')
@@ -115,6 +119,10 @@ int main()
     {
       cout << "O wins !!" <<endl;
       break;
+    }
+    else if (Win() == '/' && n ==9)
+    {
+      cout << "Game is a draw";
     }
     TogglePlayer();
   }
