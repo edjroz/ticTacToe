@@ -7,6 +7,7 @@ char grid [3][3] = {'1','2','3','4','5','6','7','8','9'};
 char player = 'X';
 void Grid()
 {
+  system("clear");
   for (int i= 0; i<3; i++)
   {
     for (int j=0; j<3; j++)
@@ -47,6 +48,57 @@ void TogglePlayer()
 {
    player == 'X' ? player = 'O' : player = 'X';
 }
+char Win()
+{
+  //Row winning for X
+  if (grid[0][0] =='X' && grid[0][1] =='X' && grid[0][2] =='X')
+    return 'X';
+  if (grid[1][0] =='X' && grid[1][1] =='X' && grid[1][2] =='X')
+    return 'X';
+  if (grid[2][0] =='X' && grid[2][1] =='X' && grid[2][2] =='X')
+    return 'X';
+
+  //Column winning for X
+  if (grid[0][0] =='X' && grid[1][0] =='X' && grid[2][0] =='X')
+    return 'X';
+  if (grid[0][1] =='X' && grid[1][1] =='X' && grid[2][1] =='X')
+    return 'X';
+  if (grid[0][2] =='X' && grid[1][2] =='X' && grid[2][2] =='X')
+    return 'X';
+
+  //Cross winning for X
+
+  if (grid[0][0] =='X' && grid[1][1] =='X' && grid[2][2] =='X')
+    return 'X';
+  if (grid[0][2] =='X' && grid[1][1] =='X' && grid[2][0] =='X')
+    return 'X';
+
+  //Row winning for O
+  if (grid[0][0] =='O' && grid[0][1] =='O' && grid[0][2] =='O')
+    return 'O';
+  if (grid[1][0] =='O' && grid[1][1] =='O' && grid[1][2] =='O')
+    return 'O';
+  if (grid[2][0] =='O' && grid[2][1] =='O' && grid[2][2] =='O')
+    return 'O';
+
+  //Column winning for O
+  if (grid[0][0] =='O' && grid[1][0] =='O' && grid[2][0] =='O')
+    return 'O';
+  if (grid[0][1] =='O' && grid[1][1] =='O' && grid[2][1] =='O')
+    return 'O';
+  if (grid[0][2] =='O' && grid[1][2] =='O' && grid[2][2] =='O')
+    return 'O';
+
+  //Cross winning for O
+  if (grid[0][0] =='O' && grid[1][1] =='O' && grid[2][2] =='O')
+    return 'O';
+  if (grid[0][2] =='O' && grid[1][1] =='O' && grid[2][0] =='O')
+    return 'O';
+
+return '/';
+
+}
+
 int main()
 {
   Grid();
@@ -54,8 +106,18 @@ int main()
   {
     Input();
     Grid();
+    if ( Win()=='X')
+    {
+      cout << "X wins! "<< endl;
+      break;
+    }
+    else if (Win() == 'O')
+    {
+      cout << "O wins !!" <<endl;
+      break;
+    }
     TogglePlayer();
   }
-  system("pause");
+  //system("pause");
   return 0;
 }
