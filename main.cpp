@@ -173,32 +173,50 @@ return '/';
 
 }
 
+void Menu() {
+  int input;
+  cout <<  "Bienvenido a Tic-Tac-Toe /Welcome to Tic-Tac-Toe"<<endl;
+  cout << "Desea jugar ?"<< endl;
+  cout << "1-Si"<<endl;
+  cout <<"2-No " <<endl;
+  cin >> input;
+
+  if (input == 1 ){
+    Grid();
+    while (1)
+    {
+      plays++;
+      Input();
+      Grid();
+      if ( Win()=='X')
+      {
+        cout << "X wins! "<< endl;
+        break;
+      }
+      else if (Win() == 'O')
+      {
+        cout << "O wins !!" <<endl;
+        break;
+      }
+      else if (Win() == '/' && plays == 9)
+      {
+        cout << "Game is a draw";
+        break;
+      }
+      TogglePlayer();
+    }
+  }
+  else if( input == 2)
+  {
+    cout << "Gracias por utilizar esta aplicacion !!" << endl;
+  }
+
+}
+
 int main()
 {
   plays = 0;
-  Grid();
-  while (1)
-  {
-    plays++;
-    Input();
-    Grid();
-    if ( Win()=='X')
-    {
-      cout << "X wins! "<< endl;
-      break;
-    }
-    else if (Win() == 'O')
-    {
-      cout << "O wins !!" <<endl;
-      break;
-    }
-    else if (Win() == '/' && plays == 9)
-    {
-      cout << "Game is a draw";
-      break;
-    }
-    TogglePlayer();
-  }
+  Menu();
   //system("pause");
   return 0;
 }
