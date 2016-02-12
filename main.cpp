@@ -22,28 +22,100 @@ void Grid()
 
 void Input()
 {
-  int input;
-  cout <<"Presione el numero en el que desea jugar:";
-  cin >> input;
+  int userInput;
+  cout <<"Presione el numero en el que desea jugar: ";
+  cin >> userInput;
 
-  if (input == 1 )
-    grid[0][0] = player;
-  if (input == 2 )
-    grid[0][1] = player;
-  if (input == 3 )
-    grid[0][2] = player;
-  if (input == 4 )
-    grid[1][0] = player;
-  if (input == 5 )
-    grid[1][1] = player;
-  if (input == 6 )
-    grid[1][2] = player;
-  if (input == 7 )
-    grid[2][0] = player;
-  if (input == 8 )
-    grid[2][1] = player;
-  if (input == 9)
-    grid[2][2] = player;
+  if (userInput == 1 )
+    {
+      if (grid [0][0] == '1')
+        grid[0][0] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 2 )
+    {
+      if(grid[0][1] == '2')
+        grid[0][1] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 3 )
+    {
+      if(grid[0][2] == '3')
+        grid[0][2] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 4 )
+    {
+      if(grid[1][0] == '4')
+        grid[1][0] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 5 )
+    {
+      if(grid[1][1] == '5')
+        grid[1][1] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 6 )
+    {
+      if(grid[1][2] == '6')
+        grid[1][2] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 7 )
+    {
+      if(grid[2][0] == '7')
+        grid[2][0] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 8 )
+    {
+      if(grid[2][1] == '8')
+        grid[2][1] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
+  if (userInput == 9)
+    {
+      if(grid[2][2] == '9')
+        grid[2][2] = player;
+      else
+      {
+        cout << "Campo ocupado intente otro"<<endl;
+        Input();
+      }
+    }
 }
 
 void TogglePlayer()
@@ -107,7 +179,7 @@ int main()
   Grid();
   while (1)
   {
-    n++
+    plays++;
     Input();
     Grid();
     if ( Win()=='X')
@@ -120,9 +192,10 @@ int main()
       cout << "O wins !!" <<endl;
       break;
     }
-    else if (Win() == '/' && n ==9)
+    else if (Win() == '/' && plays == 9)
     {
       cout << "Game is a draw";
+      break;
     }
     TogglePlayer();
   }
